@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --primary: #1D50EE;
+  --white: #FFFFFF;
+  --black: #100F14;
+  --yellow-button: #FFDE53;
+  --gray-border: #ebeef4;
+  --shadow-soft-gray: 0px 3px 8px 4px rgba(0,0,0,0.03);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-white: var(--white);
+  --color-black: var(--black);
+  --color-yellow-button: var(--yellow-button);
+  --color-gray-border: var(--gray-border);
+
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Animaciones */
+  @keyframes shine-in {
+    0% { transform: translateX(-150%) rotate(12deg); }
+    100% { transform: translateX(300%) rotate(12deg); }
+  }
+
+  @keyframes shine-out {
+    0% { transform: translateX(300%) rotate(12deg); }
+    100% { transform: translateX(-150%) rotate(12deg); }
+  }
+
+  --animate-shine-in: shine-in 0.6s ease-in-out forwards;
+  --animate-shine-out: shine-out 0.6s ease-in-out forwards;
+
+  --shadow-custom-inset: rgba(255, 255, 255, 0.28) 0px 0px 4px 2px inset,
+                         rgba(36, 101, 255, 0.4) 0px 0px 8px 1px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.shadow-soft-gray {
+  box-shadow: var(--shadow-soft-gray);
 }
